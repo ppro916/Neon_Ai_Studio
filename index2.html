@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neon AI Studio</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap" rel="stylesheet">
+
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Orbitron',sans-serif}
+body{background:#05050a;color:#fff;overflow-x:hidden}
+
+/* HERO */
+.hero{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:40px 20px;
+}
+
+/* LOGO */
+.logo-wrap{margin-bottom:28px}
+.logo-wrap img{
+  width:min(75vw,300px);
+  height:auto;
+  filter:drop-shadow(0 0 28px #0ff);
+}
+
+/* TEXT */
+.neon-text{font-size:2.6rem;color:#0ff;text-shadow:0 0 22px #0ff}
+.tagline{margin-top:10px;color:#aaa}
+.sub{margin-bottom:30px;color:#777;font-size:.95rem}
+
+/* BUTTONS */
+.btn{
+  position:relative;
+  display:inline-block;
+  margin:12px;
+  padding:16px 34px;
+  border-radius:40px;
+  text-decoration:none;
+  color:#0ff;
+  border:1px solid #0ff;
+  overflow:hidden;
+}
+.btn.primary{background:#0ff;color:#000;font-weight:600}
+.btn-text{position:relative;z-index:2}
+.btn-glow{position:absolute;inset:0;box-shadow:0 0 30px #0ff;opacity:.65}
+
+/* SECTION */
+.section{padding:80px 20px}
+.section-header{text-align:center;margin-bottom:40px}
+.highlight{color:#0ff}
+
+/* CAROUSEL */
+.carousel{
+  max-width:420px;
+  margin:auto;
+  position:relative;
+  overflow:hidden;
+  border-radius:18px;
+}
+.carousel-track{display:flex;transition:transform .4s ease}
+.slide{min-width:100%;background:#000;padding:10px}
+
+/* arrows */
+.nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  background:rgba(0,0,0,.6);
+  border:none;
+  color:#0ff;
+  font-size:26px;
+  padding:8px 14px;
+  cursor:pointer;
+}
+.nav.prev{left:8px}
+.nav.next{right:8px}
+
+/* Instagram fix */
+.instagram-media{min-width:100%!important}
+
+/* GRID (used everywhere – UI same) */
+.services-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
+.service-item{
+  background:#0b0b14;
+  padding:20px;
+  border-radius:14px;
+  text-align:center;
+}
+
+/* CONTACT */
+.contact{text-align:center}
+
+/* FIXED WHATSAPP */
+.whatsapp-float{
+  position:fixed;
+  bottom:18px;
+  right:18px;
+  width:56px;
+  height:56px;
+  background:#25D366;
+  color:#fff;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:28px;
+  z-index:999;
+  box-shadow:0 0 20px #25D366;
+}
+
+/* ===== NEON PULSE ===== */
+@keyframes neonPulse {
+  0%   { text-shadow: 0 0 10px #0ff, 0 0 20px #0ff; }
+  50%  { text-shadow: 0 0 25px #0ff, 0 0 50px #0ff; }
+  100% { text-shadow: 0 0 10px #0ff, 0 0 20px #0ff; }
+}
+
+.neon-text{
+  animation: neonPulse 2.5s infinite alternate;
+}
+
+/* ===== FLOATING HERO ===== */
+@keyframes float {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-12px); }
+  100% { transform: translateY(0); }
+}
+
+.hero > div{
+  animation: float 6s ease-in-out infinite;
+}
+
+/* ===== BUTTON NEON FLOW ===== */
+.btn::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  background:linear-gradient(120deg,#0ff,transparent,#0ff);
+  opacity:.6;
+  filter:blur(12px);
+  animation: neonFlow 3s linear infinite;
+}
+
+@keyframes neonFlow{
+  0%{transform:translateX(-100%)}
+  100%{transform:translateX(100%)}
+}
+
+/* ===== CAROUSEL SOFT GLOW ===== */
+.carousel{
+  box-shadow:0 0 30px rgba(0,255,255,.35);
+  animation: softGlow 4s infinite alternate;
+}
+
+@keyframes softGlow{
+  from{box-shadow:0 0 15px rgba(0,255,255,.2)}
+  to{box-shadow:0 0 45px rgba(0,255,255,.6)}
+}
+
+/* ===== SERVICE CARD HOVER ===== */
+.service-item{
+  transition:.4s ease;
+}
+.service-item:hover{
+  transform:translateY(-10px) scale(1.04);
+  box-shadow:0 0 25px #0ff;
+}
+
+/* ===== WHATSAPP HEARTBEAT ===== */
+@keyframes beat{
+  0%{transform:scale(1)}
+  50%{transform:scale(1.15)}
+  100%{transform:scale(1)}
+}
+
+.whatsapp-float{
+  animation: beat 1.8s infinite;
+}
+</style>
+</head>
+
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="logo-wrap">
+      <img src="neon_ai_studio_logo.png" alt="Neon AI Studio">
+    </div>
+
+    <h1 class="neon-text">NEON AI STUDIO</h1>
+    <p class="tagline">Future-Ready Ads Powered by AI</p>
+    <p class="sub">Posters • Video Ads • Reels • AI Visuals</p>
+
+    <a href="#projects" class="btn">
+      <span class="btn-text">VIEW PROJECTS</span><span class="btn-glow"></span>
+    </a>
+
+    <a href="https://wa.me/917038821854" class="btn primary">
+      <span class="btn-text">ORDER ON WHATSAPP</span><span class="btn-glow"></span>
+    </a>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="section">
+  <div class="section-header">
+    <h2><span class="highlight">Featured Work</span></h2>
+  </div>
+
+  <div class="carousel">
+    <div class="carousel-track" id="carouselTrack"></div>
+    <button class="nav prev" onclick="moveSlide(-1)">❮</button>
+    <button class="nav next" onclick="moveSlide(1)">❯</button>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="section">
+  <div class="section-header">
+    <h2><span class="highlight">Why Choose Us</span></h2>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-item">⚡ Fast Delivery</div>
+    <div class="service-item">🎨 Unique AI Designs</div>
+  </div>
+</section>
+
+<!-- PRICING HINT -->
+<section class="section">
+  <div class="section-header">
+    <h2><span class="highlight">Pricing Starts From</span></h2>
+  </div>
+
+  <div class="services-grid">
+    <div class="service-item">🖼️ Posters – ₹49+</div>
+    <div class="service-item">🎬 Reels – ₹599+</div>
+    <div class="service-item">💎 Premium Ads - ₹999</div>
+    <div class="service-item">📢 Brand Promo – Custom</div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact">
+  <a class="btn primary" href="https://wa.me/917038821854">
+    <span class="btn-text">CONTACT ON WHATSAPP</span><span class="btn-glow"></span>
+  </a>
+</section>
+
+<!-- FIXED WHATSAPP -->
+<a href="https://wa.me/917038821854" class="whatsapp-float">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+<!-- Instagram -->
+<script async src="https://www.instagram.com/embed.js"></script>
+
+<script>
+let index = 0;
+const track = document.getElementById("carouselTrack");
+let slides = [];
+
+fetch("projects.json")
+.then(res => res.json())
+.then(data => {
+  data.forEach(p => {
+    const div = document.createElement("div");
+    div.className = "slide";
+    div.innerHTML = `
+      <blockquote class="instagram-media"
+        data-instgrm-permalink="${p.url}"
+        data-instgrm-version="14"></blockquote>`;
+    track.appendChild(div);
+  });
+  slides = document.querySelectorAll(".slide");
+  if(window.instgrm) window.instgrm.Embeds.process();
+});
+
+/* Manual + Auto Swipe */
+function moveSlide(d){
+  index += d;
+  if(index < 0) index = slides.length - 1;
+  if(index >= slides.length) index = 0;
+  track.style.transform = `translateX(-${index*100}%)`;
+}
+
+/* AUTO SWIPE */
+setInterval(()=>{
+  if(slides.length > 1){
+    moveSlide(1);
+  }
+}, 5000);
+</script>
+
+</body>
+</html>
